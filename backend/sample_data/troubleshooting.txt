@@ -1,0 +1,87 @@
+Problem: Laptop Overheating
+Cause: Dust accumulation in vents, high CPU usage
+Solution: Clean air vents, close unnecessary applications, use cooling pad
+
+---
+
+Problem: WiFi Not Working
+Cause: Driver issues, router problems
+Solution: Restart router, update network drivers, reconnect network
+
+---
+
+Problem: Battery Draining Fast
+Cause: Background apps, high brightness
+Solution: Reduce brightness, close apps, enable battery saver mode
+
+---
+
+Problem: System Running Slow
+Cause: Too many startup programs, low RAM
+Solution: Disable startup apps, upgrade RAM, clean temporary files
+
+---
+
+Problem: Blue Screen Error
+Cause: Driver failure, hardware issue
+Solution: Update drivers, run system diagnostics, check hardware
+
+---
+
+Problem: USB Not Detected
+Cause: Port issue, driver missing
+Solution: Try another port, reinstall USB drivers
+
+---
+
+Problem: No Sound Issue
+Cause: Disabled audio driver, wrong output device
+Solution: Enable audio device, update drivers, check settings
+
+---
+
+Problem: Screen Flickering
+Cause: Display driver issue, loose cable
+Solution: Update display driver, check connections
+
+---
+
+Problem: Keyboard Not Working
+Cause: Driver issue, hardware fault
+Solution: Restart system, update drivers, check keyboard connection
+
+---
+
+Problem: Software Not Installing
+Cause: Insufficient storage, permission issues
+Solution: Free disk space, run as administrator
+
+---
+
+Problem: Internet Slow Speed
+Cause: Network congestion, background downloads
+Solution: Restart router, limit background usage
+
+---
+
+Problem: Login Failure
+Cause: Incorrect password, account lock
+Solution: Reset password, contact admin
+
+---
+
+Problem: Printer Not Working
+Cause: Connection issue, driver problem
+Solution: Check cables, reinstall drivers
+
+---
+
+Problem: Application Crash
+Cause: Software bug, low memory
+Solution: Update app, close other programs
+
+---
+
+Problem: Disk Space Full
+Cause: Large unused files
+Solution: Delete unused files, clear cache
