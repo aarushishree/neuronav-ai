@@ -32,7 +32,7 @@ CORS(flask_app, origins=os.environ.get('CORS_ORIGINS', '*').split(','))
 # -----------------------------
 data = load_all_data()
 
-model = SentenceTransformer("all-MiniLM-L6-v2")
+SentenceTransformer("paraphrase-MiniLM-L3-v2")
 
 full_text = data["troubleshooting"] + "\n" + data["faq"]
 chunks = chunk_text(full_text)
