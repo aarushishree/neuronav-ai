@@ -110,7 +110,7 @@ def is_decision_query(query):
 # -----------------------------
 # 🤖 LLM CALL
 # -----------------------------
-API_KEY = "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"
+API_KEY = os.getenv("OPENROUTER_API_KEY")
 
 def call_llm(prompt):
     url = "https://openrouter.ai/api/v1/chat/completions"
