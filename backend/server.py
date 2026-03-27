@@ -44,7 +44,7 @@ index = faiss.IndexFlatL2(dimension)
 index.add(np.array(embeddings))
 
 # -----------------------------
-# 🎭 STRONG PERSONA SYSTEM
+# 🎭 PERSONA SYSTEM (FIXED)
 # -----------------------------
 def get_persona_prompt(persona):
     if persona == "student":
@@ -63,26 +63,15 @@ You are a software engineer.
 """
     elif persona == "manager":
         return """
-You are a business manager making decisions.
+You are a business manager.
 
-STRICT STYLE:
-- Give SHORT answer
-- Use bullet points
-- Focus on impact, cost, performance
-- DO NOT explain technical details
-
-Example style:
-- Problem: affects system performance
-- Cause: resource limitation
-- Solution: optimize or upgrade system
+- Give SHORT bullet-point answers
+- Focus on impact and outcomes
+- Avoid technical details
 """
     else:
         return """
-You are a normal assistant.
-
-- Give balanced explanation
-- Medium detail
-- Not too simple, not too technical
+Give a clear and balanced explanation.
 """
 
 # -----------------------------
@@ -128,8 +117,6 @@ def call_llm(prompt):
     response = requests.post(url, headers=headers, json=data_payload)
     result = response.json()
 
-    print("🔍 RAW LLM OUTPUT:\n", result)  # DEBUG
-
     if "error" in result:
         return f"⚠️ API Error: {result['error']['message']}"
 
@@ -141,17 +128,13 @@ def call_llm(prompt):
 def parse_response(text):
     problem, cause, solution = "", "", ""
 
-    lines = text.split("\n")
-
-    for line in lines:
+    for line in text.split("\n"):
         line_lower = line.lower()
 
         if line_lower.startswith("problem"):
             problem = line.split(":", 1)[-1].strip()
-
         elif line_lower.startswith("cause"):
             cause = line.split(":", 1)[-1].strip()
-
         elif line_lower.startswith("solution"):
             solution = line.split(":", 1)[-1].strip()
 
@@ -162,7 +145,7 @@ def parse_response(text):
 # -----------------------------
 def process_query(query, persona):
 
-    print("🎭 Persona Used:", persona)
+    print("🎭 Persona:", persona)
 
     if is_unsafe(query):
         return {
@@ -183,9 +166,8 @@ def process_query(query, persona):
 You are an AI assistant.
 
 STRICT RULES:
-- You MUST follow persona style EXACTLY
+- Follow persona EXACTLY
 - Each persona must sound DIFFERENT
-- If style is same, answer is WRONG
 
 PERSONA:
 {persona_instruction}
@@ -204,17 +186,15 @@ Solution: <answer>
 
     raw_answer = call_llm(prompt)
 
-    print("🧠 Parsed Text:\n", raw_answer)
-
     problem, cause, solution = parse_response(raw_answer)
 
-    # ✅ FALLBACK (prevents empty UI)
+    # fallback (prevents empty UI)
     if not problem:
         problem = raw_answer
     if not cause:
-        cause = "Generated based on context"
+        cause = "Generated from context"
     if not solution:
-        solution = "See explanation above"
+        solution = "Refer to problem explanation"
 
     mode = "decision" if is_decision_query(query) else "normal"
 
@@ -242,15 +222,16 @@ def ask():
             return jsonify({'error': 'Query is required'}), 400
 
         result = process_query(query, persona)
-
         return jsonify(result), 200
 
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 
+
 @flask_app.route('/api/health', methods=['GET'])
 def health():
     return jsonify({'status': 'healthy'}), 200
+
 
 # ASGI wrapper
 app = WsgiToAsgi(flask_app)
