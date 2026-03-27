@@ -1,0 +1,29 @@
+Q: What is an IP address?
+A: It is a unique identifier assigned to devices on a network.
+
+Q: What is RAM?
+A: RAM is temporary memory used for running applications.
+
+Q: What is a firewall?
+A: A firewall protects a network from unauthorized access.
+
+Q: What is a driver?
+A: A driver is software that allows hardware to communicate with the system.
+
+Q: What is cloud computing?
+A: It is storing and accessing data over the internet instead of local storage.
+
+Q: What is a server?
+A: A server provides services or resources to other devices.
+
+Q: What is latency?
+A: Delay in data transmission over a network.
+
+Q: What is bandwidth?
+A: The amount of data that can be transmitted over a network.
+
+Q: What is malware?
+A: Malicious software designed to harm systems.
+
+Q: What is authentication?
+A: Process of verifying user identity.

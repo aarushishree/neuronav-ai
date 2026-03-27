@@ -1,0 +1,70 @@
+/* App container - no center alignment */
+.App {
+  min-height: 100vh;
+  position: relative;
+}
+
+/* Background images */
+.bg-mesh-light {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  opacity: 0.4;
+  background-image: url('https://static.prod-images.emergentagent.com/jobs/5b71d060-19bb-4d16-b3b8-a7ce6f79c20a/images/0f1a2dd520681f2dadbb7ad4b9fa720399debb75d9d9a2da7389c5e4b22c8c48.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.bg-mesh-dark {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  opacity: 0.4;
+  background-image: url('https://static.prod-images.emergentagent.com/jobs/5b71d060-19bb-4d16-b3b8-a7ce6f79c20a/images/d8d007f55a4d077c2ec98d3145b361cb9755a1b56c58b513f0bcc9ff7fa928b8.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Loading animation */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.animate-pulse-slow {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Shimmer effect */
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+.shimmer {
+  animation: shimmer 2s infinite;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.3) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  background-size: 1000px 100%;
+}
+
